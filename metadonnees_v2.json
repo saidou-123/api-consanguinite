@@ -1,0 +1,30 @@
+{
+  "version": "2.0",
+  "type": "classification_binaire",
+  "algorithme": "GradientBoosting",
+  "precision": 0.691,
+  "auc_roc": 0.7367103451588115,
+  "seuil_f_pourcent": 15.0,
+  "features": [
+    "Distance_Genetique_Estimee",
+    "Diversite_Allelique",
+    "Similarite_Phenotypique",
+    "Taux_Reussite_Reproduction",
+    "Statut_Fondateur_A",
+    "Statut_Fondateur_B",
+    "Taux_Incompletude_A",
+    "Taux_Incompletude_B",
+    "Score_Sante_A",
+    "Score_Sante_B",
+    "Niveau_Confiance",
+    "Nb_Traits_Communs"
+  ],
+  "classes": {
+    "0": "ACCEPTABLE (F ≤ 15%)",
+    "1": "RISQUE (F > 15%)"
+  },
+  "couleurs_flutter": {
+    "0": "vert",
+    "1": "rouge"
+  }
+}

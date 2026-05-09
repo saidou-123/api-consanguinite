@@ -1,0 +1,6 @@
+﻿.env
+start.ps1
+__pycache__/
+*.pyc
+dataset_consanguinite_ladoum.csv
+graphiques_modele_v2.png

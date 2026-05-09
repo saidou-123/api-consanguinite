@@ -1,0 +1,7 @@
+﻿flask
+flask-cors
+joblib
+scikit-learn
+supabase
+python-dotenv
+gunicorn
