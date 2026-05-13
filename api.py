@@ -349,10 +349,11 @@ def test():
 # DÉMARRAGE
 # ==================================================================
 if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
     print("\n" + "=" * 60)
     print("🚀 API CONSANGUINITÉ OVINS v3 — DÉMARRAGE")
     print("=" * 60)
-    print("📡 Serveur          : http://localhost:5000")
+    print(f"📡 Serveur          : http://localhost:{port}")
     print("🧬 Pedigree + Wright: POST /analyser-pedigree")
     print("🤖 ML seul (legacy) : POST /predire")
     print("🔍 Santé            : GET  /sante")
@@ -362,4 +363,4 @@ if __name__ == '__main__':
     print(f"  SUPABASE_URL = {os.environ.get('SUPABASE_URL', '❌ NON DÉFINIE')[:40]}")
     print(f"  SUPABASE_KEY = {'✅ définie' if os.environ.get('SUPABASE_KEY') else '❌ NON DÉFINIE'}")
     print("=" * 60 + "\n")
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=port, debug=False)

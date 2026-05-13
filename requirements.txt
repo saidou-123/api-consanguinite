@@ -2,6 +2,8 @@
 flask-cors
 joblib
 scikit-learn
+numpy
+pandas
 supabase
 python-dotenv
 gunicorn
