@@ -201,8 +201,12 @@ def analyser_pedigree():
                 len(noms_ancetres),                 # Nb_Traits_Communs
             ]]
             vecteur_norme       = scaler.transform(vecteur_ml)
-            pred_ml             = int(modele.predict(vecteur_norme)[0])
             probas_ml           = modele.predict_proba(vecteur_norme)[0]
+            # Seuil abaissé à 0.40 (au lieu de 0.50 par défaut) pour réduire
+            # les faux négatifs : mieux vaut signaler un risque qui n'en est
+            # pas un, que de manquer un vrai cas de consanguinité.
+            SEUIL_ML = 0.40
+            pred_ml             = 1 if probas_ml[1] >= SEUIL_ML else 0
             ml_resultat         = 'RISQUE' if pred_ml == 1 else 'ACCEPTABLE'
             ml_confiance_risque = round(float(probas_ml[1]), 3)
             ml_confiance_acceptable = round(float(probas_ml[0]), 3)
@@ -233,7 +237,8 @@ def analyser_pedigree():
             'confiance'           : confiance,
             'confiance_message'   : confiance_msg,
             'incompletude_moyenne': round(float(incompletude_moy), 2),
-            'niveau'              : niveau,
+            'niveau'              : niveau,   # clé principale
+            'resultat'            : niveau,   # alias pour compatibilité Flutter
             'couleur'             : couleur,
             'message'             : message,
             'action'              : action,

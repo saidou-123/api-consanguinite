@@ -21,7 +21,7 @@ from supabase import create_client, Client
 SUPABASE_URL = os.environ.get('SUPABASE_URL', '')
 SUPABASE_KEY = os.environ.get('SUPABASE_KEY', '')   # clé anon ou service_role
 
-MAX_GENERATIONS = 4   # profondeur maximale de remontée
+MAX_GENERATIONS = 6  # Augmenté de 4 → 6 pour éviter les faux négatifs sur pedigrees profonds   # profondeur maximale de remontée
 
 
 def _get_supabase() -> Client:
