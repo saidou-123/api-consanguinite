@@ -21,7 +21,7 @@
 # =============================================================================
 
 from dotenv import load_dotenv
-load_dotenv(override=True)
+load_dotenv()
 
 import os
 from flask import Flask, request, jsonify
@@ -599,7 +599,7 @@ if __name__ == '__main__':
     print("🔍 Santé            : GET  /sante")
     print("🧪 Test Wright      : GET  /test")
     print("=" * 60)
-    print("Variables d'environnement requises:")
+    print("Variables d'environnement requisess:")
     print(f"  SUPABASE_URL = {os.environ.get('SUPABASE_URL', '❌ NON DÉFINIE')[:40]}")
     print(f"  SUPABASE_KEY = {'✅ définie' if os.environ.get('SUPABASE_KEY') else '❌ NON DÉFINIE'}")
     print("=" * 60 + "\n")
