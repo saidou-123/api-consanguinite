@@ -1,10 +1,11 @@
 {
-  "version": "2.0",
-  "type": "classification_binaire",
+  "version": "3.1",
   "algorithme": "GradientBoosting",
-  "precision": 0.691,
-  "auc_roc": 0.7367103451588115,
-  "seuil_f_pourcent": 15.0,
+  "precision": 0.8843,
+  "precision_cv": 0.8895,
+  "auc_roc": 0.9082,
+  "seuil_f_pourcent": 3.25,
+  "n_couples": 15000,
   "features": [
     "Distance_Genetique_Estimee",
     "Diversite_Allelique",
@@ -20,8 +21,8 @@
     "Nb_Traits_Communs"
   ],
   "classes": {
-    "0": "ACCEPTABLE (F ≤ 15%)",
-    "1": "RISQUE (F > 15%)"
+    "0": "ACCEPTABLE (F≤3.25%)",
+    "1": "RISQUE (F>3.25%)"
   },
   "couleurs_flutter": {
     "0": "vert",

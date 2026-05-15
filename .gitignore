@@ -2,5 +2,5 @@
 start.ps1
 __pycache__/
 *.pyc
-dataset_consanguinite_ladoum.csv
-graphiques_modele_v2.png
+dataset_realiste_v3.csv
+graphiques_modele_v3.png

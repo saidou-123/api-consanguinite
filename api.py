@@ -21,7 +21,7 @@
 # =============================================================================
 
 from dotenv import load_dotenv
-load_dotenv()
+load_dotenv(override=True)
 
 import os
 from flask import Flask, request, jsonify
@@ -37,11 +37,11 @@ app = Flask(__name__)
 CORS(app)
 
 # ------------------------------------------------------------------
-# CHARGEMENT DU MODÈLE ML (Gradient Boosting v2)
+# CHARGEMENT DU MODÈLE ML (Gradient Boosting v3.1)
 # ------------------------------------------------------------------
-print("⏳ Chargement du modèle IA v2...")
-modele = joblib.load('modele_consanguinite_v2.pkl')
-scaler = joblib.load('normaliseur_v2.pkl')
+print("⏳ Chargement du modèle IA v3.1...")
+modele = joblib.load('modele_consanguinite_v3.pkl')
+scaler = joblib.load('normaliseur_v3.pkl')
 print("✅ Modèle ML chargé")
 
 FEATURES_ML = [
@@ -545,9 +545,9 @@ def predire():
 def accueil():
     return jsonify({
         'statut'   : 'en ligne',
-        'version'  : '4.0',
-        'modele'   : 'Gradient Boosting v2 + Wright Algorithm',
-        'precision': '69.1% (ML) | 95%+ (Wright complet)',
+        'version'  : '5.0',
+        'modele'   : 'Gradient Boosting v3.1 + Wright Algorithm',
+        'precision': '88.4% (ML v3.1) | 95%+ (Wright complet)',
         'nouveautes_v4': [
             'Score santé lu depuis Supabase (plus de 0.80 fixe)',
             'Statut fondateur calculé automatiquement',
@@ -560,7 +560,7 @@ def accueil():
 
 @app.route('/sante', methods=['GET'])
 def sante():
-    return jsonify({'statut': 'ok', 'modele_charge': True, 'version': '4.0'})
+    return jsonify({'statut': 'ok', 'modele_charge': True, 'version'  : '5.0'})
 
 
 @app.route('/test', methods=['GET'])
@@ -591,7 +591,7 @@ def test():
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     print("\n" + "=" * 60)
-    print("🚀 API CONSANGUINITÉ OVINS v4 — DÉMARRAGE")
+    print("🚀 API CONSANGUINITÉ OVINS v5 — DÉMARRAGE")
     print("=" * 60)
     print(f"📡 Serveur          : http://localhost:{port}")
     print("🧬 Pedigree + Wright: POST /analyser-pedigree")
@@ -599,7 +599,7 @@ if __name__ == '__main__':
     print("🔍 Santé            : GET  /sante")
     print("🧪 Test Wright      : GET  /test")
     print("=" * 60)
-    print("Variables d'environnement requisess:")
+    print("Variables d'environnement requises:")
     print(f"  SUPABASE_URL = {os.environ.get('SUPABASE_URL', '❌ NON DÉFINIE')[:40]}")
     print(f"  SUPABASE_KEY = {'✅ définie' if os.environ.get('SUPABASE_KEY') else '❌ NON DÉFINIE'}")
     print("=" * 60 + "\n")
