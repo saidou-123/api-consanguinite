@@ -62,7 +62,7 @@ FEATURES_ML = [
 # Seuil ML abaissé à 0.40 pour réduire les faux négatifs
 # (mieux vaut signaler un risque qui n'en est pas un que de manquer
 #  un vrai cas de consanguinité)
-SEUIL_ML = 0.40
+SEUIL_ML = 0.65
 
 
 # ==================================================================
