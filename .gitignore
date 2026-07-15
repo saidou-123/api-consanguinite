@@ -4,3 +4,33 @@ __pycache__/
 *.pyc
 dataset_realiste_v3.csv
 graphiques_modele_v3.png
+# Environnement
+.env
+start.ps1
+start.bat
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+
+# Dataset (trop lourd pour GitHub)
+dataset_realiste_v3.csv
+dataset_consanguinite_ladoum.csv
+
+# Graphiques générés
+graphiques_modele_v3.png
+graphiques_modele_v3_roc.png
+graphiques_modele_v2.png
+
+# Modèle ML (binaire, géré séparément)
+# NB : modele_consanguinite_v3.pkl et normaliseur_v3.pkl
+#      DOIVENT être inclus pour Railway (requis au démarrage)
+# Décommentez les lignes ci-dessous UNIQUEMENT si vous utilisez
+# un bucket de stockage externe (ex: Supabase Storage, S3)
+# modele_consanguinite_v3.pkl
+# normaliseur_v3.pkl
